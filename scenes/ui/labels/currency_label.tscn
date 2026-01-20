@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4h5aptq65se"]
+
+[ext_resource type="Script" uid="uid://cmoy1lxq2bug7" path="res://scenes/ui/labels/currency_label.gd" id="1_5gk7m"]
+[ext_resource type="Resource" uid="uid://dqm22xe6kirin" path="res://game_data/currencies/gold.tres" id="2_xeswr"]
+
+[node name="CurrencyLabel" type="Label"]
+text = "Gold Label"
+script = ExtResource("1_5gk7m")
+monitored_currency = ExtResource("2_xeswr")

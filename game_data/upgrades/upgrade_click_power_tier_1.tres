@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelableUpgrade" load_steps=2 format=3 uid="uid://cwft1llqhhvm3"]
+
+[ext_resource type="Script" uid="uid://ibattlbh7e1t" path="res://core/resources/levelable_upgrade.gd" id="1_q18pf"]
+
+[resource]
+script = ExtResource("1_q18pf")
+id = "tier_01_click_upgrade"
+display_name = "Tier 01 Click upgrade"
+cost_growth = 5.0
+power_per_level = 5.0
+metadata/_custom_type_script = "uid://ibattlbh7e1t"
