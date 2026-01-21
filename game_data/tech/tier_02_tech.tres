@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="LevelableUpgrade" load_steps=2 format=3 uid="uid://c425c6y6hji3d"]
+[gd_resource type="Resource" script_class="LevelableUpgrade" load_steps=3 format=3 uid="uid://c425c6y6hji3d"]
 
 [ext_resource type="Script" uid="uid://ibattlbh7e1t" path="res://core/resources/levelable_upgrade.gd" id="1_6ickn"]
+[ext_resource type="Texture2D" uid="uid://p0j5q5hi4cep" path="res://icon.svg" id="1_tegcw"]
 
 [resource]
 script = ExtResource("1_6ickn")
 id = "tier_02_tech"
+icon = ExtResource("1_tegcw")
 upgrade_type = 1
-display_name = "Tier 02 tech"
-target_stat = 4
+display_name = "Tier 02 Tech"
 base_cost = 100.0
 cost_growth = 0.0
 power_per_level = 0.0

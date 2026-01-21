@@ -21,6 +21,5 @@ func _on_currency_changed(type: GameEnums.CurrencyType, new_amount: float):
 		_update_text(new_amount)
 
 func _update_text(amount: float):
-	# Using the display name from the Resource makes it reusable!
-	# "Gold: 100" or "Mana: 50"
-	text = "%s: %s" % [monitored_currency.display_name, str(snapped(amount, 0.1))]
+	var formatted_amount = NumberFormatter.format_value(amount)
+	text = "%s: %s" % [monitored_currency.display_name, formatted_amount]

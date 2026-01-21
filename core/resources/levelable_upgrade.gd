@@ -9,10 +9,10 @@ enum UpgradeType {
 
 @export_category("Identity")
 @export var id: String = "upgrade_id_here"
-# --- NEW VARIABLE: ASSIGN TYPE HERE ---
+@export var icon: Texture2D
 @export var upgrade_type: UpgradeType = UpgradeType.TOOL 
 @export var display_name: String = "Upgrade Name"
-@export var target_stat: GameEnums.StatType = GameEnums.StatType.CLICK_POWER
+@export var target_stat: GameEnums.StatType
 
 @export_category("Costs")
 @export var cost_currency: GameEnums.CurrencyType = GameEnums.CurrencyType.GOLD
