@@ -14,6 +14,10 @@ enum UpgradeType {
 @export var display_name: String = "Upgrade Name"
 @export var target_stat: GameEnums.StatType
 
+@export_group("Audio")
+@export var audio_on_use: AudioStream
+@export var audio_on_purchase: AudioStream
+
 @export_category("Costs")
 @export var cost_currency: GameEnums.CurrencyType = GameEnums.CurrencyType.GOLD
 @export var base_cost: float = 10.0

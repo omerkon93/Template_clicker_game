@@ -4,8 +4,8 @@
 
 [sub_resource type="Curve" id="Curve_65k3y"]
 _limits = [0.0, 5.0, 0.0, 5.0]
-_data = [Vector2(0, 5), 0.0, 0.0, 0, 0, Vector2(5, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0.14705878, 5), nan, 0.3450531, 0, 0, Vector2(1.9485292, 3.0898879), -0.6548959, -0.6548959, 0, 0, Vector2(2.6838233, 0), -0.43658185, nan, 0, 0]
+point_count = 3
 
 [node name="ClickParticles" type="Node2D"]
 script = ExtResource("1_1k5li")

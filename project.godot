@@ -23,10 +23,12 @@ UpgradeManager="*res://core/systems/upgrade_manager.gd"
 SaveSystem="*res://core/systems/save_system.gd"
 EffectsManager="*res://core/systems/effects_manager.gd"
 SignalBus="*res://core/globals/signal_bus.gd"
+SoundManager="*res://core/systems/sound_manager.tscn"
 
 [file_customization]
 
 folder_colors={
+"res://assetes/": "green",
 "res://core/": "red",
 "res://game_data/": "orange",
 "res://scenes/": "yellow"

@@ -33,6 +33,7 @@ func _on_clicked():
 	SignalBus.request_floating_text.emit(mouse_pos, text_str, Color.GOLD)
 	
 	_play_bounce_animation()
+	_play_click_sound()
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -58,3 +59,18 @@ func _play_bounce_animation():
 	# 2. Stretch (Return to normal)
 	tween.tween_property(parent, "scale", Vector2.ONE, bounce_duration)\
 		.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+
+func _play_click_sound():
+	# 1. Try to find a sound from the contributing upgrades
+	var sound_to_play: AudioStream = null
+	
+	# Loop backwards to find the "highest tier" tool's sound
+	for i in range(contributing_upgrades.size() - 1, -1, -1):
+		var upg = contributing_upgrades[i]
+		if upg.audio_on_use:
+			sound_to_play = upg.audio_on_use
+			break
+			
+	if sound_to_play:
+		# Play with slight pitch variation (0.1) for variety!
+		SoundManager.play_sfx(sound_to_play, 1.0, 0.1)

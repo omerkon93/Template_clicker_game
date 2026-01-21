@@ -27,9 +27,18 @@ func _on_pressed():
 	UpgradeManager.try_purchase_level(upgrade_resource)
 
 func _on_level_changed(changed_id: String, new_lvl: int):
-	# Check matching ID
+	# 1. Check if this signal is for ME
 	if upgrade_resource and upgrade_resource.id == changed_id:
+		
+		# Update the visuals
 		_update_label()
+		_update_display() 
+		
+		# 2. Play the Success Sound! (NEW)
+		# (Check if the sound exists to avoid errors)
+		if upgrade_resource.audio_on_purchase:
+			# Play with a slightly higher pitch (1.1) to sound "positive"
+			SoundManager.play_sfx(upgrade_resource.audio_on_purchase, 1.1, 0.05)
 
 func _update_label():
 	if upgrade_resource == null: return
