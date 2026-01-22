@@ -59,3 +59,6 @@ func load_game():
 			UpgradeManager.upgrade_leveled_up.emit(string_id, level)
 
 	print("Game Loaded!")
+
+func save_file_exists() -> bool:
+	return FileAccess.file_exists(SAVE_PATH)

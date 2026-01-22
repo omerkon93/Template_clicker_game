@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bymtdvkh5wiit"]
 
-[ext_resource type="Script" uid="uid://dnssq07erf3q5" path="res://scenes/ui/shop_panel.gd" id="1_3b8rw"]
+[ext_resource type="Script" uid="uid://dnssq07erf3q5" path="res://scenes/ui/menus/shop_panel.gd" id="1_3b8rw"]
 [ext_resource type="Script" uid="uid://ibattlbh7e1t" path="res://core/resources/levelable_upgrade.gd" id="2_qecyp"]
 [ext_resource type="Resource" uid="uid://cwft1llqhhvm3" path="res://game_data/upgrades/upgrade_click_power_tier_1.tres" id="3_sjk1b"]
 [ext_resource type="Resource" uid="uid://bt361nl08dgng" path="res://game_data/upgrades/upgrade_click_power_tier_2.tres" id="4_j21la"]
@@ -45,3 +45,13 @@ horizontal_scroll_mode = 0
 [node name="UpgradeContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "X"

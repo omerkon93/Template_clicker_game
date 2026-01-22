@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Template_Clicker_Game"
-run/main_scene="uid://8kq0xrdwg7tg"
+run/main_scene="uid://clvys7pbyarur"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,7 @@ SaveSystem="*res://core/systems/save_system.gd"
 EffectsManager="*res://core/systems/effects_manager.gd"
 SignalBus="*res://core/globals/signal_bus.gd"
 SoundManager="*res://core/systems/sound_manager.tscn"
+DialogueManager="*res://scenes/ui/menus/dialogue_system.tscn"
 
 [file_customization]
 

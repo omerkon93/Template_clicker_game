@@ -13,11 +13,14 @@ class_name ShopPanel extends Control
 @export var show_purchased: bool = false
 
 @onready var container: VBoxContainer = $MarginContainer/ScrollContainer/UpgradeContainer
+@onready var close_button: Button = $CloseButton
 
 func _ready():
 	_populate_shop()
 	# Refresh UI whenever an upgrade happens
-	UpgradeManager.upgrade_leveled_up.connect(func(id, lvl): _populate_shop())
+	UpgradeManager.upgrade_leveled_up.connect(func(_id, _lvl): _populate_shop())
+	if close_button:
+		close_button.pressed.connect(_on_close_pressed)
 
 func _populate_shop():
 	if not button_scene: return
@@ -102,3 +105,7 @@ func _create_button(item: LevelableUpgrade, unlocked: bool, maxed: bool):
 		# OWNED STATE (Green tint)
 		btn.modulate = Color(0.5, 1.0, 0.5, 1.0)
 		btn.disabled = true
+
+func _on_close_pressed():
+	# Simply hide this panel
+	visible = false

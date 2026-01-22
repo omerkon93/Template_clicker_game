@@ -10,6 +10,7 @@ enum UpgradeType {
 @export_category("Identity")
 @export var id: String = "upgrade_id_here"
 @export var icon: Texture2D
+@export var world_sprite: Texture2D
 @export var upgrade_type: UpgradeType = UpgradeType.TOOL 
 @export var display_name: String = "Upgrade Name"
 @export var target_stat: GameEnums.StatType

@@ -38,8 +38,21 @@ func play_sfx(stream: AudioStream, pitch_scale: float = 1.0, pitch_randomness: f
 
 func play_music(stream: AudioStream, fade_duration: float = 1.0):
 	if _music_player.stream == stream and _music_player.playing:
-		return # Already playing this track
-		
-	# Simple hard switch for now (We can add crossfading later)
-	_music_player.stream = stream
-	_music_player.play()
+		return
+
+	# 1. Create a Tween for the animation
+	var tween = create_tween()
+	
+	# 2. Fade OUT (Volume down to -80db)
+	# We use half the duration for fade out, half for fade in
+	if _music_player.playing:
+		tween.tween_property(_music_player, "volume_db", -80.0, fade_duration / 2.0)
+	
+	# 3. Swap the song (Run this code after the fade out finishes)
+	tween.tween_callback(func():
+		_music_player.stream = stream
+		_music_player.play()
+	)
+	
+	# 4. Fade IN (Volume back up to 0db)
+	tween.tween_property(_music_player, "volume_db", 0.0, fade_duration / 2.0)

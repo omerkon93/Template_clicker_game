@@ -16,6 +16,10 @@ func _ready():
 		parent.pressed.connect(_on_clicked)
 	elif parent is Control:
 		parent.gui_input.connect(_on_gui_input)
+	
+	UpgradeManager.upgrade_leveled_up.connect(_on_upgrade_leveled)
+	
+	_update_visuals()
 
 func _on_clicked():
 	if not stat_def: return
@@ -31,7 +35,8 @@ func _on_clicked():
 	var text_str = "+" + NumberFormatter.format_value(amount)
 	
 	SignalBus.request_floating_text.emit(mouse_pos, text_str, Color.GOLD)
-	
+	SignalBus.message_logged.emit("You gained 1 gold!", Color.GREEN)
+
 	_play_bounce_animation()
 	_play_click_sound()
 
@@ -74,3 +79,27 @@ func _play_click_sound():
 	if sound_to_play:
 		# Play with slight pitch variation (0.1) for variety!
 		SoundManager.play_sfx(sound_to_play, 1.0, 0.1)
+
+# Rename your old logic to this helper function so we can reuse it
+func _update_visuals():
+	var sprite_to_use: Texture2D = null
+	
+	# Loop through upgrades to find the best active one
+	for upg in contributing_upgrades:
+		if UpgradeManager.get_upgrade_level(upg.id) > 0:
+			if upg.world_sprite:
+				sprite_to_use = upg.world_sprite
+	
+	# Apply Visuals
+	if sprite_to_use:
+		var parent = get_parent()
+		if parent is TextureButton:
+			parent.texture_normal = sprite_to_use
+		elif parent is Button:
+			parent.icon = sprite_to_use
+		elif parent is TextureRect:
+			parent.texture = sprite_to_use
+
+# Update your listener to use the helper
+func _on_upgrade_leveled(_id: String, _lvl: int):
+	_update_visuals()

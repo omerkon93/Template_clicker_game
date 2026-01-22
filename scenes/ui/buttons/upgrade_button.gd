@@ -26,7 +26,7 @@ func _on_pressed():
 	# because the signal below will trigger it automatically!
 	UpgradeManager.try_purchase_level(upgrade_resource)
 
-func _on_level_changed(changed_id: String, new_lvl: int):
+func _on_level_changed(changed_id: String, _new_lvl: int):
 	# 1. Check if this signal is for ME
 	if upgrade_resource and upgrade_resource.id == changed_id:
 		
